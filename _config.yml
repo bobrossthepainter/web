@@ -1,26 +1,33 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown: redcarpet
+highlighter: pygments
 
 # Permalinks
-permalink:        pretty
-relative_permalinks: true
+# permalink:        pretty
+# relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
-baseurl:          /
+title: Rob Lang
+tagline: "Freelance Software Engineer"
+description: "Freelancer and Software Engineer. Doing a lot of event-driven, cloud-native things with containers and kubernetes ❤️"
+url: https://bobrossthepainter.github.io/website/
+baseurl: /
+plugins:
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-postcss
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name: "Robert Lang"
+  url: https://www.linkedin.com/in/robert-lang-26129614a/
 
-paginate:         5
+paginate: 5
+
+# postcss:
+#   cache: false
 
 # Custom vars
-version:          2.1.0
+version: 2.1.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo: https://github.com/bobrossthepainter/website

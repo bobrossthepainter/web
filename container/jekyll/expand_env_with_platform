@@ -1,0 +1,15 @@
+#!/bin/sh
+
+ARCH=${TARGETPLATFORM}
+
+if test $ARCH = "linux/amd64" ; then
+    export PLATFORM_ARCH="x86_64"
+    export PLATFORM_ARCH_SHORT="amd64"
+elif test $ARCH = "linux/arm64" ; then
+    export PLATFORM_ARCH="aarch64"
+    export PLATFORM_ARCH_SHORT="arm64"
+    export PLATFORM_ARCH_DEB="armel,armhf"
+else
+    echo "TARGETPLATFORM env variable must be set to either: 'linux/amd64' for x86 cpus or 'linux/arm64' for arm64 cpus."
+    exit 1
+fi
