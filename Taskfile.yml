@@ -1,0 +1,31 @@
+version: "3"
+
+vars:
+  TARGET_DIR:
+    sh: pwd
+
+tasks:
+  jekyll:
+    internal: true
+    cmds:
+      - mkdir -p ./target
+      - docker build container/jekyll -t jekyll-build
+      - |-
+        docker run --rm \
+        -p 4000:4000 \
+        -v {{.TARGET_DIR}}:/work \
+        -w /work \
+        jekyll-build \
+        jekyll {{.CMD}}
+    # vars:
+    #   IMG:
+    #     sh: docker build -q container/jekyll
+
+  serve-via-docker:
+    cmds:
+      - task: jekyll
+        vars:
+          CMD: serve --destination ./target -H 0.0.0.0 --watch
+  serve:
+    cmds:
+      - bundle exec jekyll serve --livereload --watch --destination ./target
